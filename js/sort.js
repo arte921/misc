@@ -9,7 +9,7 @@ const max = Math.max(...unsorted);
 
 setTimeout(() => {
     console.log(sorted);
-}, 10);
+}, max + 10);
 
 unsorted.forEach((number) => {
     setTimeout(() => {
