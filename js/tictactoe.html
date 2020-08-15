@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<style>
+
+.game-board
+{
+	width: 600px;
+	height: 600px;
+	margin: 0 auto;
+  background-color: #34495e;
+  color: #fff;
+  border: 6px solid #2c3e50;
+  border-radius: 10px;
+	
+	display: grid;
+	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.box
+{
+  border: 6px solid #2c3e50;
+  border-radius: 2px;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+</head>
+<body>
+	<div class="game-board">
+		<div id="0" class="box"  used="0"></div>
+		<div id="1" class="box"  used="0"></div>
+		<div id="2" class="box"  used="0"></div>
+		<div id="3" class="box"  used="0"></div>
+		<div id="4" class="box"  used="0"></div>
+		<div id="5" class="box"  used="0"></div>
+		<div id="6" class="box"  used="0"></div>
+		<div id="7" class="box"  used="0"></div>
+		<div id="8" class="box"  used="0"></div>
+	  </div>
+</body>
+
+<!--
+	TicTacToe
+	===============
+	Player is X
+	Computer is O
+-->
+</html>
+<script>
+
+var r = Math.floor((Math.random() * 10) + 1);
+var turn = 0; // computer
+if(r >= 5){
+	turn = 1; // user	
+}
+
+function usermove(event){
+	var id = event.currentTarget.id
+	if(!event){
+		return
+	}
+	// check whose turn it iscreen
+	// if computer, put O
+	// if user, put X
+
+	if(turn == 1){
+		document.getElementById(id).innerHTML = "X"
+		sendToServer(id, turn);
+		turn = 0
+	}else{
+		sendToServer(id, turn);
+		turn = 1
+	}
+}
+for(var i = 0; i < 9; i++){
+	document.getElementById(i).addEventListener('click', usermove);
+}
+
+function sendToServer(cell, turn) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+		resp = JSON.parse(this.responseText)
+		document.getElementById(resp["comp_move"]).innerHTML = "O"
+    }
+  };
+  xhttp.open("GET", "computerResponse?" + "cell=" + cell + "&turn=" + turn, true);
+  xhttp.send();
+}
+</script>
