@@ -1,4 +1,4 @@
-const digits = 2;
+const digits = 5;
 
 const speedfactor = 0.001;
 let collisions = 0;
@@ -8,7 +8,7 @@ class Block {
         this.x = x;
         this.mass = mass;
         this.velocity = velocity;
-        this.width = 1;
+        this.width = 1000;
     }
 
     move = () => this.x += this.velocity * speedfactor;
@@ -41,7 +41,7 @@ class Block {
 }
 
 let block1 = new Block(5, 1, 0);
-let block2 = new Block(10, 10 ** (digits * 2), -1);
+let block2 = new Block(1200, 10 ** (digits * 2), -1);
 
 while (!block1.done(block2)) {
     block1.move();
