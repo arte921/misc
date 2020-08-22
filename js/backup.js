@@ -20,9 +20,9 @@ const callback = (error, response, body) => {
 }
 
 const options = {
-  url: `https://api.github.com/users/${username}/repos`,
+  url: `https://api.github.com/users/${username}/repos?per_page=1000`,
   headers: {
-    "User-Agent": "yes"
+    "User-Agent": "bulk cloner"
   }
 };
 
