@@ -33,6 +33,7 @@ const definitions = [
 
 let leftover = decimal;
 let result = "";
+
 definitions.forEach(candidate => {
     while (candidate.value <= leftover) {
         result += candidate.letter;
