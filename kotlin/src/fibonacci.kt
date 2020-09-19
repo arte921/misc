@@ -1,10 +1,12 @@
 import java.math.BigInteger
 
-var f: BigInteger = 0.toBigInteger()
-var v: BigInteger = 1.toBigInteger()
-var t: BigInteger = 0.toBigInteger()
 
 fun fibonacci(nrs: Int): BigInteger{
+
+    var f: BigInteger = 0.toBigInteger()
+    var v: BigInteger = 1.toBigInteger()
+    var t: BigInteger = 0.toBigInteger()
+
     for(i in 1..nrs){
         f = v + t
         t = v
@@ -28,11 +30,11 @@ fun cachingRecursiveFibonacci(n: Int): Int = when(n){
     1 -> 1
     else -> {
         if(cache.containsKey(n)){
-            println("$n fromcache")
+            println("$n from cache")
             cache[n]
         }else{
             cache[n] = recursiveFibonacci(n-1) + recursiveFibonacci(n-2)
-            println("$n tocache")
+            println("$n to cache")
             cache[n]
         }
     }

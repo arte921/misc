@@ -2,7 +2,7 @@ import java.nio.file.Files.size
 
 fun mm(molecuul: List<op>): Float {
     var mass = 0f
-    for(d in molecuul){
+    for(d in molecuul) {
         mass += d.getMass()
     }
     return mass
@@ -121,5 +121,5 @@ class op(val element: String, val amount: Int){
         "Sg" -> 263
         else -> 0
     } as Float
-    fun getMass()= amount*molmass
+    fun getMass()= amount * molmass
 }
