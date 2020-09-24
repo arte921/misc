@@ -2,7 +2,7 @@ divides :: Integer -> Integer -> Bool
 divides a b = b `mod` a == 0
 
 isprime :: Integer -> [Integer] -> Bool
-isprime testnumber otherprimes = not (any (`divides` testnumber ) otherprimes)
+isprime testnumber otherprimes = not (any (`divides` testnumber) otherprimes)
 
 primefrom :: Integer -> [Integer] -> Integer
 primefrom n otherprimes
