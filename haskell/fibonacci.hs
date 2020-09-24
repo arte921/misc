@@ -1,8 +1,7 @@
+fibloop v f i
+    | i == 0 = f
+    | otherwise = fibloop f (f + v) (i - 1)
 
-{-repeat 0 _ = return()
-repeat n code = 
-    do
-        code
-        repeat (n - 1) code
+fib n = fibloop 0 1 n
 
--}
+main = putStrLn $ show (map fib [0..30])
