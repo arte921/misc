@@ -1,8 +1,8 @@
 divides :: Integer -> Integer -> Bool
-divides a b = a `mod` b == 0
+divides a b = b `mod` a == 0
 
 isprime :: Integer -> [Integer] -> Bool
-isprime testnumber otherprimes = not (any (testnumber `divides`) otherprimes)
+isprime testnumber otherprimes = not (any (`divides` testnumber ) otherprimes)
 
 primefrom :: Integer -> [Integer] -> Integer
 primefrom n otherprimes
@@ -12,8 +12,7 @@ primefrom n otherprimes
 primes :: Integer -> [Integer] -> Integer -> [Integer]
 primes n otherprimes i
     | i == 0 = otherprimes
-    | otherwise = do
-        let newprime = primefrom n otherprimes
-        primes (newprime + 1) (otherprimes ++ [newprime]) (i - 1)
+    | otherwise = let newprime = primefrom n otherprimes in
+        primes (newprime + 1) (newprime : otherprimes) (i - 1)
 
-main = putStrLn (show (primes 2 [] 100))
+main = print (reverse (primes 2 [] 200))
