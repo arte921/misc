@@ -6,4 +6,4 @@ fizzbuzz i
     | i `divides` 5 = "Buzz"
     | otherwise = show i
 
-main = putStrLn $ unlines (map fizzbuzz [1..100])
+main = putStrLn $ unlines $ map fizzbuzz [1..100]

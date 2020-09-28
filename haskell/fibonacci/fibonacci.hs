@@ -4,4 +4,4 @@ fibloop v f i
 
 fib n = fibloop 0 1 n
 
-main = putStrLn $ show (map fib [0..30])
+main = print $ map fib [0..30]

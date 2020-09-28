@@ -2,7 +2,7 @@ divides :: Integer -> Integer -> Bool
 divides a b = b `mod` a == 0
 
 isprime :: Integer -> [Integer] -> Bool
-isprime n otherprimes = not (any (`divides` n) otherprimes)
+isprime n otherprimes = not $ any (`divides` n) otherprimes
 
 primefrom :: Integer -> [Integer] -> Integer
 primefrom n otherprimes
@@ -15,4 +15,4 @@ primes n otherprimes i
     | otherwise = let newprime = primefrom n otherprimes in
         primes (newprime + 1) (newprime : otherprimes) (i - 1)
 
-main = print (reverse (primes 2 [] 200))
+main = print $ reverse $ primes 2 [] 200
