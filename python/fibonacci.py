@@ -1,16 +1,7 @@
-import time
-
-go = time.time()
-
-t = 0
-e = 1
-i = 0
-
-while (i<100):
-    f = e + t
-    t = e
-    e = f
+def fibloop (v, f, i):
+    if i == 0:
+        return f
     print(f)
-    i += 1
+    fibloop (f, f + v, i - 1)
 
-print("time:", time.time() - go)
+fibloop(0, 1, 10)
