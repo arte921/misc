@@ -6,8 +6,9 @@ fn primes (n: i32, otherprimes: &[i32], i: i32) -> &[i32] {
     if i == 0 {
         return otherprimes;
     }
-    let prime = primefrom(n + 1, &otherprimes);
-    primes(&prime + 1, [&otherprimes, &&[prime]].concat(), i - 1)
+    let newprime = primefrom(n + 1, otherprimes);
+    let allprimes = [newprime].iter().chain(otherprimes).collect::<[_]>(); // wot
+    primes(&newprime + 1, &allprimes, i - 1)
 }
 
 fn primefrom (n: i32, otherprimes: &[i32]) -> i32 {
