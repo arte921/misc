@@ -7,5 +7,5 @@ fn fibonacci (i: i32, f: i32, v: i32) -> i32 {
         return f;
     }
     println!("{}", f);
-    return fibonacci(i - 1, f + v, f);
+    fibonacci(i - 1, f + v, f)
 }
