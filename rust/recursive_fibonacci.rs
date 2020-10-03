@@ -1,5 +1,5 @@
 fn main () {
-    fibonacci(30, 1, 0);
+    fibonacci(300, 1, 0);
 }
 
 fn fibonacci (i: i32, f: i32, v: i32) -> i32 {

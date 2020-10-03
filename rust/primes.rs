@@ -1,5 +1,5 @@
 fn main () {
-    primes(1, vec![], 200);
+    primes(3, vec![], 20);
 }
 
 fn primes (n: i32, otherprimes: Vec<i32>, i: i32) -> Vec<i32> {
@@ -12,7 +12,6 @@ fn primes (n: i32, otherprimes: Vec<i32>, i: i32) -> Vec<i32> {
 }
 
 fn primefrom (n: i32, otherprimes: &Vec<i32>) -> i32 {
-    
     if isprime(n, otherprimes) {
         println!("{}", n);
         return n;
