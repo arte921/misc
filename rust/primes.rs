@@ -1,17 +1,18 @@
 fn main () {
-    // let primes = [2, 3];
+    primes(1, vec![], 200);
 }
 
-fn primes (n: i32, otherprimes: &[i32], i: i32) -> &[i32] {
+fn primes (n: i32, otherprimes: Vec<i32>, i: i32) -> Vec<i32> {
     if i == 0 {
         return otherprimes;
     }
-    let newprime = primefrom(n + 1, otherprimes);
-    let allprimes = [newprime].iter().chain(otherprimes).collect::<[_]>(); // wot
-    primes(&newprime + 1, &allprimes, i - 1)
+    let newprime = primefrom(n + 1, &otherprimes);
+    let allprimes: Vec<i32> = [&vec![newprime], &otherprimes[..]].concat();
+    primes(newprime + 1, allprimes, i - 1) 
 }
 
-fn primefrom (n: i32, otherprimes: &[i32]) -> i32 {
+fn primefrom (n: i32, otherprimes: &Vec<i32>) -> i32 {
+    
     if isprime(n, otherprimes) {
         println!("{}", n);
         return n;
@@ -19,7 +20,7 @@ fn primefrom (n: i32, otherprimes: &[i32]) -> i32 {
     primefrom(n + 1, otherprimes)
 }
 
-fn isprime (n: i32, otherprimes: &[i32]) -> bool {
+fn isprime (n: i32, otherprimes: &Vec<i32>) -> bool {
     !otherprimes.iter().any(|&prime| divides(n, prime))
 }
 

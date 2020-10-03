@@ -8,4 +8,4 @@ foo n = unlines [unwords $ palindromize $ map show [1..m] | m <- [1..n]]
 bar :: Int -> String
 bar n = unlines $ palindromize [unwords $ map show [1..m] | m <- [1..n]]
 
-main = putStrLn $ foo 5
+main = putStrLn $ "<p>haha dead chat go</p>\n" ++ (unlines $ take 999 $ repeat "<br>")
