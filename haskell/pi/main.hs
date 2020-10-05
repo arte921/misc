@@ -1,5 +1,5 @@
 incirkle :: [Int] -> Int -> Bool
-incirkle point max = sum (map (^2) point) < max ^ 2
+incirkle point max = sum (map [x^2 | x <- point]) < max ^ 2
 
 line :: Int -> Int -> Int
 line r q = length $ filter (\p -> incirkle [p, q] r) [0..r]

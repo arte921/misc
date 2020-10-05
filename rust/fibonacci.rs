@@ -1,12 +1,13 @@
+const ITERATIONS: u32 = 10;
+
 fn main() {
-    let mut f: i32;
-    let mut v: i32 = 0;
-    let mut t: i32 = 1;
-    
-    for _i in 0..10 {
-        f = v + t;
-        t = v;
-        v = f;
-        println!("{}", f);
-    }
+	fib(ITERATIONS, 0, 1);
+}
+
+fn fib (i: u32, f: u32, v: u32) -> u32 {
+	if i == 0 {
+		return i;
+	}
+	println!("f({}): {}", ITERATIONS - i, f);
+	fib (i - 1, f + v, f)
 }
