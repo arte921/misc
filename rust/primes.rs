@@ -1,5 +1,5 @@
 fn main () {
-    primes(3, vec![], 20);
+    primes(2, vec![2, 3], 20);
 }
 
 fn primes (n: i32, otherprimes: Vec<i32>, i: i32) -> Vec<i32> {
