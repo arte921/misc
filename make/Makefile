@@ -7,4 +7,4 @@ substract = $(wordlist $(words $1 x),$(words $2),$2)
 add = $1 $2
 
 run:
-	@echo $(foreach i,$(loop),$(words $(call fibonacci,$(subst _, ,$(i)),x,$())))
+	@echo $(foreach i,$(loop),$(words $(call fibonacci,$(subst _, ,$(i)),x,)))
