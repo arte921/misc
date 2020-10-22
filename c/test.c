@@ -3,8 +3,8 @@
 int main () {
 
   int t=5;
-  int *p=&t;
-  t=6;
-  printf("%d",*p);
+  int *p = &t;
+  *p = 10;
+  printf("%d", *p);
 
 }
