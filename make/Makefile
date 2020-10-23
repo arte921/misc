@@ -5,6 +5,9 @@ loop := _ x x_x x_x_x x_x_x_x x_x_x_x_x x_x_x_x_x_x x_x_x_x_x_x_x
 # $3: previous fibonacci number
 fibonacci = $(if $1, $(call fibonacci,$(call substract,$1,x),$(call add,$2,$3),$2), $2)
 
+# a + b
+# $1: a
+# $2: b
 add = $1 $2
 
 # a - b
@@ -12,6 +15,9 @@ add = $1 $2
 # $2: b
 substract = $(wordlist $(words $2 x),$(words $1),$1)
 
+# a * b
+# $1: a
+# $2: b
 multiply = $(foreach i,$1,$2)
 
 # a / b
